@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Project A: vendored dependencies are ~273 MB of third-party wheels.
+# They are required at runtime but do not belong in git history.
+# Restore by copying python_deps/ from a known-good copy of the folder.
+hand-tracker/python_deps/
+
+# Camera captures — these contain images of people. Never commit.
+hand-tracker/camera_probe/
+**/clips/
+**/footage/
+*.mp4
+*.avi
+
+# Word lock files
+~$*.docx
+
+# OS / editor
+Thumbs.db
+.DS_Store
+.idea/
+.vscode/
+
+# ---------------------------------------------------------------------------
+# DOCS-ONLY REPO (decided 2026-09-21)
+# This repo carries the written work: plans, findings, agent context, transcripts.
+# Project A's tracker source stays local and is deliberately NOT published.
+# The files below still live in your working folder -- they are just not committed.
+# ---------------------------------------------------------------------------
+
+# Project A source, binaries and vendored reference drivers
+hand-tracker/*.py
+hand-tracker/*.bat
+hand-tracker/*.dll
+hand-tracker/usb_missile_control/
+hand-tracker/rocket_launcher/
+
+# Kept on purpose (git needs these un-ignored after the wildcards above):
+!hand-tracker/CLAUDE.md
+!hand-tracker/AGENTS.md
