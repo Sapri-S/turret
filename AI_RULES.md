@@ -5,7 +5,7 @@
 
 ## Project separation (rules 1–4)
 
-1. **Project A and Project B are separate projects.** `hand-tracker/` is a personal
+1. **Project A and Project B are separate projects.** `test/hand-tracker/` is a personal
    hobby toy. `skystrike/` is university coursework. They do not share code, packages,
    or a build.
 
@@ -36,7 +36,7 @@
    Keep clear of the muzzle. The startup banner prints this reminder — keep it there.
 
 6. **Never shorten the post-FIRE silence without hardware proof.** `FIRE_CYCLE_SECONDS
-   = 4.0` is empirical, not a guess (see `hand-tracker/docs/hard-won-findings.md` §1).
+   = 4.0` is empirical, not a guess (see `test/hand-tracker/docs/hard-won-findings.md` §1).
    Any report reaching the device inside that window silently cancels the shot.
 
 7. **Don't rebind the USB driver casually.** HIDAPI needs the native HID driver;

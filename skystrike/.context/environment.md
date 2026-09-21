@@ -11,7 +11,7 @@
 - A PowerShell profile fails to load on every shell start because script execution is
   disabled. **Harmless, ignore it.**
 
-Note how the sibling project solved the empty-environment problem: `../hand-tracker/`
+Note how the sibling project solved the empty-environment problem: `../../test/hand-tracker/`
 vendors OpenCV + MediaPipe into `python_deps/` and injects them into `sys.path` at
 import time. Worth knowing about, though this project's vision code targets the Pi.
 
@@ -24,7 +24,7 @@ import time. Worth knowing about, though this project's vision code targets the 
 - A controlled-motion test rig with independent position/speed feedback.
 
 ## Borrowed lesson, not borrowed code
-The superseded moving-camera plan cited `../hand-tracker/`'s **parallax failure**:
+The superseded moving-camera plan cited `../../test/hand-tracker/`'s **parallax failure**:
 tracking can be perfectly accurate and every shot still miss, because a device
 mounted beside the camera does not share its line of sight. It was fixed there with
 a software aim offset, scope-zeroed live, and **an offset is only valid at the
@@ -43,4 +43,4 @@ rate. The proposal's insistence on measuring **capture-to-displayed-result** as 
 distribution, not an average, is exactly what catches that class of bug.
 
 **Written lessons travel between the two projects. Code does not** — see
-`../AI_RULES.md` rules 1-4.
+`../../AI_RULES.md` rules 1-4.

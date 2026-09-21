@@ -7,10 +7,10 @@ venv/
 # Project A: vendored dependencies are ~273 MB of third-party wheels.
 # They are required at runtime but do not belong in git history.
 # Restore by copying python_deps/ from a known-good copy of the folder.
-hand-tracker/python_deps/
+test/hand-tracker/python_deps/
 
 # Camera captures — these contain images of people. Never commit.
-hand-tracker/camera_probe/
+test/hand-tracker/camera_probe/
 **/clips/
 **/footage/
 *.mp4
@@ -33,15 +33,15 @@ Thumbs.db
 # ---------------------------------------------------------------------------
 
 # Project A source, binaries and vendored reference drivers
-hand-tracker/*.py
-hand-tracker/*.bat
-hand-tracker/*.dll
-hand-tracker/usb_missile_control/
-hand-tracker/rocket_launcher/
+test/hand-tracker/*.py
+test/hand-tracker/*.bat
+test/hand-tracker/*.dll
+test/hand-tracker/usb_missile_control/
+test/hand-tracker/rocket_launcher/
 
 # Kept on purpose (git needs these un-ignored after the wildcards above):
-!hand-tracker/CLAUDE.md
-!hand-tracker/AGENTS.md
+!test/hand-tracker/CLAUDE.md
+!test/hand-tracker/AGENTS.md
 
 # Outlook draft artifacts -- duplicate the plan as base64, not project docs
 *.eml

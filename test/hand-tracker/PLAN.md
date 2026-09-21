@@ -13,7 +13,7 @@ calibration and polish, not architecture.
 
 ## 3. Non-goals (explicit)
 - **Not coursework.** This is a personal toy, deliberately kept out of the SkyStrike
-  senior design project. See `../AI_RULES.md` §1–4.
+  senior design project. See `../../AI_RULES.md` §1–4.
 - **Not a platform.** One file, one device, one gesture. No plugin system, no config
   format, no packaging.
 - **Not a multi-target tracker.** `max_num_hands=1` on purpose — one hand, one shot.

@@ -1,6 +1,6 @@
-# AGENTS.md — Agent Context (read first, every session)
+# CLAUDE.md — Agent Context (read first, every session)
 
-> Codex loads this file automatically from the project root at the start of
+> Claude Code loads this file automatically from the project root at the start of
 > every session. Read it before doing anything else.
 
 ## What this project is
@@ -14,11 +14,11 @@ outstanding task is **calibrating the aim offset** so the darts actually land wh
 the tracker is pointing.
 
 This is a **toy, not coursework.** It is deliberately separate from the SkyStrike
-senior design project in `../skystrike/`. See `../AI_RULES.md` rules 1–4 before you
+senior design project in `../../skystrike/`. See `../../AI_RULES.md` rules 1–4 before you
 consider sharing anything between them.
 
 ## Read these before doing anything (source of truth)
-- **`../AI_RULES.md`** — hard guardrails. Safety + project separation. Non-negotiable.
+- **`../../AI_RULES.md`** — hard guardrails. Safety + project separation. Non-negotiable.
 - **`docs/hard-won-findings.md`** — seven findings that cost real debugging to learn.
   **Read this before changing timing, transport, or the aim logic.** Ignoring §1 will
   silently break every shot with no error message.
@@ -28,7 +28,7 @@ consider sharing anything between them.
 - **`.context/tracker_architecture.md`** — stage-by-stage walkthrough + tuning constants.
 
 ## How to work here
-1. At session start: read `../AI_RULES.md` → `docs/hard-won-findings.md` → PROGRESS.md.
+1. At session start: read `../../AI_RULES.md` → `docs/hard-won-findings.md` → PROGRESS.md.
 2. Work the **next unchecked item** in PROGRESS.md.
 3. Make focused edits. This is one working file — don't rewrite it wholesale.
 4. After each chunk: update PROGRESS.md, then summarize what changed in 1–2 lines.
@@ -39,7 +39,7 @@ consider sharing anything between them.
 `storm_oic_hand_tracker.py` resolves its vendored dependencies and `hidapi.dll`
 relative to its own directory (`HERE = Path(__file__).resolve().parent`). The flat
 layout is load-bearing; moving scripts into `src/` breaks the import path and the DLL
-load. See `../AI_RULES.md` §8.
+load. See `../../AI_RULES.md` §8.
 
 | File | What it is |
 | --- | --- |
@@ -69,7 +69,7 @@ the camera.
 
 ## Do NOT
 - Send anything to the device for 4.0 s after FIRE. Not even STOP. Especially not STOP.
-- Port any of this into `../skystrike/`. It is a firing device; that project is not.
+- Port any of this into `../../skystrike/`. It is a firing device; that project is not.
 - Point it at a person as part of coursework — flag the conflict instead.
 - Add a `pip install` step. The dependencies are vendored; global site-packages is empty.
 - Rebind the USB driver to WinUSB/libusb without a specific reason. It breaks HIDAPI.

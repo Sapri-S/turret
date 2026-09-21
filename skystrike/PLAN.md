@@ -25,7 +25,7 @@ supplies independent reference position and speed.
   **unselected option**, and no turret speed or firing modification is included.
 - **Scene exclusion is not a safety interlock.** Person/animal detection is
   evaluated as a feature; it does not certify that a scene contains no people.
-- **Not the hand tracker.** `../hand-tracker/` fires a dart at a hand. Separate
+- **Not the hand tracker.** `../test/hand-tracker/` fires a dart at a hand. Separate
   project, separate rules.
 
 ## 3. The current proposal

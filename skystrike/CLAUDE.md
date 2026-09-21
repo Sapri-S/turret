@@ -39,7 +39,7 @@ triggering, or firing controls."* `../AI_RULES.md` rules 1–4 enforce it.
 - Person/animal detection is a **scene-exclusion feature under evaluation**, not a
   guarantee and not a physical safety interlock. Never describe it as one.
 
-The hand tracker in `../hand-tracker/` *is* a firing device. Personal toy, **not
+The hand tracker in `../test/hand-tracker/` *is* a firing device. Personal toy, **not
 part of this academic project.** Written lessons may travel between them; **code may
 not.**
 
@@ -98,7 +98,7 @@ which **is** installed globally. `ROOT` resolves relative to the script.
 ## Do NOT
 - Hand-edit `plan/SkyStrike_Fixed_Camera_Plan.docx`. Edit the Markdown.
 - Build from anything in `docs/archive/`.
-- Copy firing code, fire timing, or the launcher class from `../hand-tracker/`.
+- Copy firing code, fire timing, or the launcher class from `../test/hand-tracker/`.
 - Connect a launcher or any weapon, or point a camera at a person as a target.
 - Describe scene exclusion as a safety guarantee.
 - Install any AI HAT runtime before the **exact variant is confirmed** — runtime and

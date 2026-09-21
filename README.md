@@ -6,7 +6,7 @@ They are **not one project** and their code does not mix — see `AI_RULES.md`.
 
 | Folder | Project | Status |
 | --- | --- | --- |
-| `hand-tracker/` | **Project A** — Dream Cheeky Storm O.I.C. webcam hand tracker. Personal hobby toy. Aims a USB foam-dart launcher, fires on a fist gesture. | **Working.** Main open task: calibrate the aim offset. |
+| `test/hand-tracker/` | **Project A** — Dream Cheeky Storm O.I.C. webcam hand tracker. Personal hobby toy and testbed. Aims a USB foam-dart launcher, fires on a fist gesture. | **Working.** Main open task: calibrate the aim offset. |
 | `skystrike/` | **Project B** — SkyStrike senior design project. Raspberry Pi 5 + AI HAT, **fixed** cameras plus approach sensors, tracking artificial fruit and balls. Six-person university team, two semesters. | **Proposal only, no code yet.** |
 
 ## The separation rule (read this before writing anything)
@@ -31,7 +31,7 @@ finding, calibration method, and threading/latency lessons. Project B's plan
 for that borrowing.
 
 ## Each project is its own session root
-Open `hand-tracker/` or `skystrike/` as the working directory — not this parent — so
+Open `test/hand-tracker/` or `skystrike/` as the working directory — not this parent — so
 that project's `CLAUDE.md` loads and its context stays scoped.
 
 ## Where this came from
@@ -59,7 +59,7 @@ if those belong to SkyStrike and I'll bring them over).
 - Python 3.11.9 at
   `C:\Users\sapri\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\python.exe`
 - **Global site-packages is essentially empty** — no OpenCV, no MediaPipe. Project A
-  works *only* because its dependencies are vendored in `hand-tracker/python_deps/`
+  works *only* because its dependencies are vendored in `test/hand-tracker/python_deps/`
   and injected into `sys.path` at runtime. Don't assume imports work outside that
   folder. `python-docx` is the one thing installed globally (Project B needs it).
 - A PowerShell profile fails to load on every shell start because script execution is
