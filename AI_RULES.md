@@ -13,10 +13,18 @@
    classes, not `FIRE`/`0x10`, not `FIRE_CYCLE_SECONDS`, not the fist-to-fire state
    machine. Project B's plan commits to camera-only, non-firing work.
 
-3. **Project B does not aim at people.** No launcher connected during development. No
-   aiming or firing at anyone's hand or body, even with a foam dart. No automatic
-   release. Any dart-accuracy trial is supervised, on a printed paper target, with a
-   human manually releasing the dart.
+3. **Project B has no connection to weapons.** Its current proposal (2026-09-21) is
+   stricter than the plan it replaced: the system has **no connection to weapon
+   aiming, triggering, or firing controls** at all. No launcher, no dart, no firing
+   mechanism, never aimed at a person. The archived plan's "supervised dart-accuracy
+   trial on a paper target" is **no longer part of the project** -- do not reinstate
+   it from `skystrike/docs/archive/`.
+
+   Related: **A.S.S. II** (`~/Downloads/A.S.S. II Patreon Release-.../`) is a
+   person-tracking **airsoft** turret. Its frame is mechanically neutral and its
+   reuse is an open option; its gun mount, trigger path and person-detection software
+   are not. Scene exclusion in Project B is an evaluated feature, **never** a safety
+   interlock -- don't let it be described as one.
 
 4. **Flag the conflict, don't resolve it silently.** If a request would point Project
    A at a person as part of coursework, or would make Project B fire, say so and stop.

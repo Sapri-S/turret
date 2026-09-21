@@ -19,17 +19,28 @@ import time. Worth knowing about, though this project's vision code targets the 
 - **Raspberry Pi 5 + AI HAT**, already owned.
   ⚠️ **Exact HAT variant not yet confirmed.** The runtime and the compiled model must
   match it — confirm before installing anything.
-- Two-servo pan/tilt mount, with a light camera on it.
+- **Fixed** camera mounts. No pan/tilt -- the cameras do not move.
+- Approach sensors, technology not yet selected.
+- A controlled-motion test rig with independent position/speed feedback.
 
 ## Borrowed lesson, not borrowed code
-The plan's Part 3 section A cites `../hand-tracker/`'s **parallax failure**: tracking
-can be perfectly accurate and every shot still miss, because a device mounted beside
-the camera does not share its line of sight. It was fixed there with a software aim
-offset, scope-zeroed live, and **an offset is only valid at the distance it was
-calibrated for**.
+The superseded moving-camera plan cited `../hand-tracker/`'s **parallax failure**:
+tracking can be perfectly accurate and every shot still miss, because a device
+mounted beside the camera does not share its line of sight. It was fixed there with
+a software aim offset, scope-zeroed live, and **an offset is only valid at the
+distance it was calibrated for**.
 
-That finding is why Part 3 section A specifies degrees-per-pixel, sign conventions, an
-aim point, and a re-calibration procedure up front rather than discovering them late.
+**Fixed cameras change the shape of this, they do not remove it.** With nothing
+being aimed there is no barrel to zero, but the same class of error reappears as:
+cross-view association between two cameras that see the scene from different
+places, and **sensor-to-workspace mapping** — an approach sensor's crossing point
+is not where the camera thinks the object is. The current proposal covers both
+under Calibration, and keeps them as separate tests on purpose.
+
+A second lesson worth carrying: the hand tracker's aiming loop blocked on
+`time.sleep()` for 40-100 ms per frame, throwing away ~87% of its achievable frame
+rate. The proposal's insistence on measuring **capture-to-displayed-result** as a
+distribution, not an average, is exactly what catches that class of bug.
 
 **Written lessons travel between the two projects. Code does not** — see
-`../AI_RULES.md` rules 1–4.
+`../AI_RULES.md` rules 1-4.

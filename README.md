@@ -7,7 +7,7 @@ They are **not one project** and their code does not mix — see `AI_RULES.md`.
 | Folder | Project | Status |
 | --- | --- | --- |
 | `hand-tracker/` | **Project A** — Dream Cheeky Storm O.I.C. webcam hand tracker. Personal hobby toy. Aims a USB foam-dart launcher, fires on a fist gesture. | **Working.** Main open task: calibrate the aim offset. |
-| `skystrike/` | **Project B** — SkyStrike senior design project. Raspberry Pi 5 + AI HAT tracking fake fruit on a pan/tilt mount. University team project. | **Plan only, no code yet.** |
+| `skystrike/` | **Project B** — SkyStrike senior design project. Raspberry Pi 5 + AI HAT, **fixed** cameras plus approach sensors, tracking artificial fruit and balls. Six-person university team, two semesters. | **Proposal only, no code yet.** |
 
 ## The separation rule (read this before writing anything)
 
