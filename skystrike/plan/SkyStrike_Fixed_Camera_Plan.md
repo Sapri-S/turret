@@ -36,6 +36,22 @@ Proposed development direction: establish the one-camera baseline, then add two 
 
 Two cameras do not automatically provide depth. Metric stereo depth would require a specifically calibrated configuration and suitable synchronized observations; it is not a baseline requirement. A hidden object cannot be observed by either camera if both views are obstructed.
 
+### Camera requirements to establish before purchase
+
+Camera selection is currently open. The following properties must be specified rather than discovered after purchase, because each one can make the recorded data unusable for fast-moving props regardless of how good the software is.
+
+| Property | Requirement | Consequence if unspecified |
+| --- | --- | --- |
+| Shutter type | Global shutter | A rolling shutter exposes image rows at different times, so a fast object is recorded skewed. Its measured position and shape are then wrong in a way no later processing can undo. |
+| Frame rate | Derived from the fastest prop speed and the largest acceptable between-frame displacement, not chosen by convention | At 30 fps an object moving 10 m/s travels about 0.33 m between frames. Association and velocity estimates degrade sharply once displacement approaches object size. |
+| Exposure time | Short enough that motion blur stays below the tolerated centroid error at maximum prop speed | Blur enlarges and biases the detected object. This constrains lighting, which constrains budget. |
+| Synchronisation | Hardware trigger or an equivalent common time base across cameras, with the residual offset measured | Independent software timestamps drift. For two views of a fast object, a few milliseconds of offset appears as a large position disagreement, which corrupts cross-view association. |
+| Interface and latency | Measured capture-to-available latency for the specific camera and driver path, not the vendor frame-rate figure | Frame rate describes throughput, not delay. A camera can deliver many frames per second and still present each one late. |
+| Resolution and lens | Chosen together, from required workspace coverage and the pixels needed on the smallest prop at maximum range | Resolution alone does not determine whether a prop is detectable. |
+| Mount rigidity | Rigid enough that vibration does not move the view beyond calibration tolerance | Mount movement silently invalidates a stored calibration. |
+
+Record achieved values, not only intended ones. Settle the frame-rate and exposure requirement early, because it drives lighting, interface, compute and cost together.
+
 ## Approach sensors
 
 Place candidate sensors where the test path crosses an approach boundary outside camera coverage. Select the technology only after specifying the working distance, prop size, speed, ambient conditions, and required warning interval.
@@ -43,6 +59,10 @@ Place candidate sensors where the test path crosses an approach boundary outside
 Candidate experiments include a boundary-crossing sensor and a distance sensor. Compare detection probability, false alerts, event timing, coverage, and whether the sensor detects the actual props. Do not assume a sensor's coverage or range exceeds the camera's useful coverage without measurements.
 
 Record sensor events independently of camera classification. Association should allow unmatched alerts, multiple candidate objects, expired events, and sensor faults. A sensor alert must never be promoted directly to confirmed fruit.
+
+Distinguish two different sensor roles and do not conflate them. A **boundary or presence sensor** answers "something crossed", producing a timestamped event with little or no position information and no velocity. A **measurement sensor** contributes a position or range estimate that could enter a state estimate alongside camera observations. The candidate devices discussed so far, including multizone time-of-flight modules, belong to the first category: their zone count, update rate and range resolution suit presence detection, not estimating where a prop is or where it is heading.
+
+This bounds what the sensor subsystem can ever deliver. An event sensor can provide advance warning and an independent check on camera timing. It cannot refine a track, and it cannot support any later work that depends on knowing an object's trajectory. If a sensor is ever required to contribute to a state estimate, that is a different specification -- stated range resolution, stated update rate, stated latency -- and a different selection exercise.
 
 ## Selected feature requirements
 
@@ -76,6 +96,10 @@ Start with a small number of explainable modes, such as normal lighting, low lig
 Choose a constrained path appropriate for the room and budget, such as a guided carriage or small conveyor carrying artificial fruit and balls. Provide repeatable start positions, interchangeable props, and removable obstruction panels. Include a reachable stop control and appropriate mechanical guarding.
 
 Measure actual motion using independent feedback rather than treating a commanded motor speed as ground truth. Characterize the rig's measurement uncertainty before using it to judge the camera system. Test-rig motion remains independent of object classification.
+
+A guided carriage or conveyor produces constant-velocity motion along a fixed straight path. That is the easiest case the system will ever see. It is a deliberate starting point, not a sufficient one: it does not exercise acceleration, path curvature, apparent size changing with range, or the shorter observation window of a fast prop.
+
+Plan a second motion condition with a curved, accelerating path -- an inclined guided path, a pendulum carrier, or a prop released down a ramp and allowed to fall -- so recognition and tracking are evaluated against changing velocity. Keep the independent reference measurement for this condition too; a trajectory nobody measured is not evidence. Report straight-path and curved-path results separately rather than pooling them, because pooling hides the harder case.
 
 ### Automatic report
 
@@ -127,7 +151,19 @@ Use a replay mode so recognition, tracking, and reports can be developed without
 
 Vary speed, distance, lighting, background, object count, and obstruction duration deliberately. Avoid changing every factor at once. Split data by recording session and reserve a final held-out evaluation set. Keep tuning separate from final test evaluation.
 
-Define latency endpoints precisely. For this proposal, measure capture-to-displayed-result and sensor-event-to-logged-alert separately; camera-to-servo delay from the old plan no longer applies. Report distributions, including a high-percentile value, rather than only averages.
+Define latency endpoints precisely, and measure more than one. Camera-to-servo delay from the old plan no longer applies.
+
+Measure these separately:
+
+- **Capture to result available** -- from frame exposure to the moment a completed detection and track update exists in memory. This describes how quickly the system could act on what it saw.
+- **Capture to displayed result** -- the same path continued through rendering to the dashboard. Always larger. It describes the operator experience, not the system's responsiveness.
+- **Sensor event to logged alert** -- the independent sensor path.
+
+Reporting only the displayed figure conflates the processing pipeline with the rendering path. It would credit the system with a delay it does not have, or blame it for one belonging to the display. Instrument the boundary between them explicitly.
+
+Derive a target for capture-to-result-available from the physics of the fastest prop **before** measuring: state the displacement that occurs within one pipeline delay, decide what displacement is acceptable, and let that set the requirement. Then measure whether it is met. Choosing a latency threshold after seeing the measurements records what was achieved but cannot show whether it was ever enough.
+
+Report distributions, including a high-percentile value, rather than only averages. A pipeline that is fast on average and occasionally very slow behaves differently from a consistently moderate one, and the average hides exactly that.
 
 Choose numeric acceptance thresholds after baseline measurements and advisor review. Specify required workspace coverage, prop speeds and sizes, detection performance, acceptable identity errors, recovery time, warning interval, runtime, and trial counts. Record any unmet thresholds honestly.
 

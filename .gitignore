@@ -42,3 +42,6 @@ hand-tracker/rocket_launcher/
 # Kept on purpose (git needs these un-ignored after the wildcards above):
 !hand-tracker/CLAUDE.md
 !hand-tracker/AGENTS.md
+
+# Outlook draft artifacts -- duplicate the plan as base64, not project docs
+*.eml

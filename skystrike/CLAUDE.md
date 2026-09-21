@@ -51,6 +51,9 @@ not.**
 - **PROGRESS.md** — what's done, what's next, every open question.
 - **`.context/environment.md`** — the machine, the target hardware, and the lessons
   carried over from the sibling project.
+- **`docs/ass-ii-hardware-reference.md`** — what the A.S.S. II release actually
+  contains: parts, printed dimensions, BOM, and the two traps in its firmware.
+  Read before anyone proposes reusing that hardware.
 - **`docs/archive/moving-camera-plan/README.md`** — what the old plan said and, more
   usefully, **what the new one dropped.**
 
