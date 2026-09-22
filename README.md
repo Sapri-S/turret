@@ -36,7 +36,7 @@ that project's `CLAUDE.md` loads and its context stays scoped.
 
 ## Where this came from
 Copied 2026-09-21 from
-`C:\Users\sapri\Documents\Codex\2026-09-15\can\outputs\`. **Originals were left in
+a dated Codex output folder. **Originals were left in
 place** — nothing was moved or deleted. Once you've confirmed this folder works, the
 originals can go.
 
@@ -57,7 +57,7 @@ if those belong to SkyStrike and I'll bring them over).
 - Windows 11, PowerShell. **`&&` and `||` do not work** in this PowerShell version —
   use `;` or `if ($?) { }`.
 - Python 3.11.9 at
-  `C:\Users\sapri\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\python.exe`
+  the Windows Store build (`...\WindowsApps\PythonSoftwareFoundation.Python.3.11_*\python.exe`)
 - **Global site-packages is essentially empty** — no OpenCV, no MediaPipe. Project A
   works *only* because its dependencies are vendored in `test/hand-tracker/python_deps/`
   and injected into `sys.path` at runtime. Don't assume imports work outside that

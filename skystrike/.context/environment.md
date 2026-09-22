@@ -4,7 +4,7 @@
 - Windows 11, **PowerShell**. ⚠️ **`&&` and `||` do not work** in this PowerShell
   version — use `;` or `if ($?) { }`.
 - Python 3.11.9 at
-  `C:\Users\sapri\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\python.exe`
+  the Windows Store build (`...\WindowsApps\PythonSoftwareFoundation.Python.3.11_*\python.exe`)
 - **Global site-packages is essentially empty** — no OpenCV, no MediaPipe.
   **`python-docx` is the one thing installed globally**, which is what the plan build
   script needs.

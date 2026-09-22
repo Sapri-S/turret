@@ -20,7 +20,7 @@ them would redistribute someone's Patreon release and bloat a docs-only repo. Th
 live locally at:
 
 ```
-C:\Users\sapri\Downloads\A.S.S. II Patreon Release-20260921T202453Z-1-001\
+<downloads>\A.S.S. II Patreon Release-20260921T202453Z-1-001\
 ```
 
 ## What is in the release

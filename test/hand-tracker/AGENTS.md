@@ -58,7 +58,7 @@ load. See `../../AI_RULES.md` §8.
 
 ## Run it
 ```
-cd "C:\Users\sapri\Downloads\turret\hand-tracker"
+cd <repo>/test/hand-tracker
 python .\storm_oic_hand_tracker.py
 ```
 `--camera 0` is the default. Keys: `Q`/`Esc` quit, `W/A/S/D` nudge aim, `R` reset aim.
