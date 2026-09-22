@@ -85,6 +85,8 @@ During early tests, use distinguishable props to establish a baseline, then add 
 
 Begin with guided calibration: a teammate presents a known board while software selects usable images, estimates lens parameters, and reports quality. With two cameras, also establish their relationship to the workspace and check time alignment. Fully unattended calibration is a stretch objective, not assumed in the baseline.
 
+Measure physical geometry with an instrument; do not infer it from photographs. Any distance that enters a calculation -- camera-to-camera separation, camera-to-sensor offset, mount position, workspace extent -- is recorded as a measured value with its uncertainty and the instrument used, not estimated from an image or from a drawing. A photograph taken without a scale reference in the same plane as the subject carries a scale error of tens of percent, and that error propagates silently into every downstream result. Where a photograph is the only option, include a ruler or other known length at the subject's distance and record that the value came from an image.
+
 Record camera identity, resolution, relevant lens settings, mount position, date, and calibration version. Invalidate affected calibration when the camera or lens configuration changes. Test sensor-to-workspace mapping separately from camera calibration.
 
 ### Adaptive modes

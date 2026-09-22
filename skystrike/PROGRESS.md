@@ -37,6 +37,21 @@
       features across two semesters is ambitious; get this ranked, in writing.
 - [ ] Confirm the no-weapon-connection scope boundary in writing.
 
+### 3b. Record physical measurements properly from day one ⚠️
+- [ ] Every distance entering a calculation gets measured with an instrument,
+      with its uncertainty and the instrument noted. Camera separation,
+      camera-to-sensor offsets, mount positions, workspace extent.
+- [ ] Never scale a physical quantity off a photograph that has no ruler at the
+      subject's own distance.
+
+> Learned the hard way on the sibling project (2026-09-22): a camera-to-barrel
+> offset was estimated from one photo, scaled against a laptop screen of known
+> size. The turret sat nearer the phone than the screen, so it was magnified by
+> an unknown factor and the answer carried +/-30% error. The component that
+> mattered most was not even visible in the frame. Thirty seconds with a ruler
+> would have given +/-0.5 mm. Member 5 owns metrology -- this belongs in that
+> role's working practice before any hardware is mounted.
+
 ### 4. Semester-one groundwork
 - [ ] Assign the six members to the six roles.
 - [ ] Inventory owned and borrowable equipment; **verify the Pi 5 and AI HAT**.
