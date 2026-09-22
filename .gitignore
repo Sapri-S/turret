@@ -45,3 +45,9 @@ test/hand-tracker/rocket_launcher/
 
 # Outlook draft artifacts -- duplicate the plan as base64, not project docs
 *.eml
+
+# Session records -- kept locally, deliberately NOT published.
+# The transcript zip contains the raw JSONL with an email address and
+# discussion of an unrelated private project. Removed from history before
+# this repo was made public; do not re-add.
+docs/
